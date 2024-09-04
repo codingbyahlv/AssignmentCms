@@ -1,0 +1,117 @@
+@include heading-colors(
+  --color-primary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-primary
+);
+@include theme-heading(
+  "dark",
+  --color-primary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-primary
+);
+@include theme-heading(
+  "primary",
+  --color-light,
+  --color-light,
+  --color-light,
+  --color-secondary,
+  --color-light,
+  --color-light,
+  --color-secondary,
+  --color-light,
+  --color-light,
+  --color-light
+);
+@include theme-heading(
+  "secondary",
+  --color-primary,
+  --color-primary,
+  --color-primary,
+  --color-accent,
+  --color-primary,
+  --color-primary,
+  --color-accent,
+  --color-primary,
+  --color-primary,
+  --color-primary
+);
+@include theme-heading(
+  "accent",
+  --color-primary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-primary
+);
+@include theme-heading(
+  "gray",
+  --color-primary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-primary
+);
+@include theme-heading(
+  "light",
+  --color-primary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-secondary,
+  --color-primary,
+  --color-primary,
+  --color-primary
+);
+
+.body {
+  @include text-colors(--color-primary);
+}
+.note1 {
+  @include text-colors(--color-light);
+}
+.note2 {
+  @include text-colors(--color-secondary); //??
+}
+.label {
+  @include text-colors(--color-secondary);
+}
+.slide {
+  @include text-colors(--color-primary);
+}
+.quote {
+  @include text-colors(--color-primary);
+}
+
+// @include text-colors(--color-primary);
+// @include theme-text("dark", --color-light);
+// @include theme-text("primary", --color-secondary);
+// @include theme-text("secondary", --color-primary);
+// @include theme-text("accent", --color-secondary);
+// @include theme-text("gray", --color-secondary);
+// @include theme-text("light", --color-secondary);

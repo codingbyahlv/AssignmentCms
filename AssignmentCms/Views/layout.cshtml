@@ -1,0 +1,37 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+	Layout = null;
+
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+	var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
+    var siteTagline = settings?.Value<string>("siteName") ?? "Financial Solutions";
+    var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} | {siteName} - {siteTagline}" : $"{siteName} - {siteTagline}";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css">
+    <link rel="stylesheet" href="/css/scss/main.min.css">
+    <link rel="stylesheet" href="/css/scss/themes/default/theme-default.min.css">
+    
+	<title>@pageTitle</title>
+  </head>
+  <body class="wrapper">
+	@await Html.PartialAsync("partials/static/topbar.cshtml")
+	@await Html.PartialAsync("partials/static/header.cshtml")
+	<main>
+		@RenderBody()
+	</main>
+	@await Html.PartialAsync("partials/static/footer.cshtml")
+	<script src="/scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var selectedImage = Model?.Content.Value<IPublishedContent>("selectedImage")?.Url() ?? null;
+    var selectedImageAlt = Model?.Content.Value<string>("imageAlt") ?? "";
+}
+
+@if(!string.IsNullOrEmpty(selectedImage)){
+    <img class="" src="@selectedImage" alt="@selectedImageAlt" style="align-self:center;"/>
+}
+

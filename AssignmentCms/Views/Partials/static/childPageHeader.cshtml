@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{ 
+    var selection = Model.Ancestors().ToArray(); 
+    var pageTitle = Model.Name;
+    if(Model.Value("pageTitle") != null && Model.Value("pageTitle") != ""){
+    pageTitle = Model.Value("pageTitle").ToString();
+    }
+}
+
+<section class="page-header-section" style="background-image: url('./images/pageHeader.svg');">
+    <h2 class="h2">@pageTitle</h2>
+    @if (selection?.Length > 0)
+    {
+        @foreach (var item in selection.OrderBy(x => x.Level)){
+
+            <a href="@item.Url(PublishedUrlProvider)">@item.Name</a> <span class="divider">/</span>
+        }
+        <p class="body">@Model.Name</p>
+    }
+</section>
+
+

@@ -1,0 +1,22 @@
+img,
+svg {
+  vertical-align: middle;
+}
+
+.spacing-top{
+    padding-top: 100px;
+}
+
+.spacing-bottom{
+    padding-bottom: 100px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerText{
+    text-align: center;
+}

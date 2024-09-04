@@ -1,0 +1,29 @@
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  img {
+    object-fit: contain;
+  }
+  .link-wrapper {
+    display: none;
+    @include desktop {
+      display: flex;
+      gap: 75px;
+    }
+  }
+  .fa-magnifying-glass {
+    display: none;
+    @include desktop {
+      font-size: 16px;
+      display: inline;
+    }
+  }
+  .btn-menu {
+    @include desktop {
+      display: none;
+    }
+  }
+}
