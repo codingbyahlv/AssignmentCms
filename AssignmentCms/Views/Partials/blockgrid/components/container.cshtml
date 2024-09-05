@@ -2,9 +2,9 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
+     var containerBackgroundImage = Model?.Content.Value<IPublishedContent>("containerBackgroundImage")?.Url() ?? null;
 }
 
-<div class="container" style="background-image: url('@sectionBackgroundImage');">
+<div class="container" style="background-image: url('@containerBackgroundImage');">
      @await Html.GetBlockGridItemAreasHtmlAsync(Model)
 </div>

@@ -18,9 +18,6 @@
 
 <section id="@sectionId" class="@spacingTopClass @spacingBottomClass @backgroundColorClass" >
      <div class="container @centerContentClass" style="background-image: url('@sectionBackgroundImage');">
-          <!-- @if(!string.IsNullOrEmpty(sectionBackgroundImage)){
-               <img class="bg-img" src="@sectionBackgroundImage" alt="" />
-          } -->
           @await Html.GetBlockGridItemAreasHtmlAsync(Model)
      </div>
 </section>

@@ -1,7 +1,49 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
 @{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var contactHeadline = settings?.Value<string>("contactHeadline") ?? "";
+    var contactImage = settings?.Value<IPublishedContent>("contactImage")?.Url() ?? null;
+    var contactImageAlt = settings?.Value<string>("contactImageAlt") ?? "";
 
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var phoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+    var emailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+    var showOfficeLocation = settings.Value<bool>("showOfficeLocation");
+    var showPhoneNumber = settings.Value<bool>("showPhoneNumber");
+    var showEmailAddress = settings.Value<bool>("showEmailAddress");
 }
-<p class="body">contact section</p>
+
+<section id="contact" class="contact-section">
+  <div class="container contact-content">
+    <div class="text-content">
+        <h2 class="h2">Let us know about your next project</h2>
+        @if(showOfficeLocation){
+          <div class="information-wrapper">
+            <i class="fa-regular fa-location-dot item1"></i>
+              <h6 class="subtitle3 item2">Office location</h6>
+              <p class="body item3">@officeLocation</p>
+          </div>
+        }
+        @if(showPhoneNumber){
+          <div class="information-wrapper">
+            <i class="fa-regular fa-phone item1"></i>
+              <h6 class="subtitle3 item2">Phone number</h6>
+              <p class="body item3">@phoneNumber</p>
+          </div>
+        } 
+        @if(showEmailAddress){
+          <div class="information-wrapper">
+            <i class="fa-regular fa-envelope item1"></i>
+              <h6 class="subtitle3 item2">E-mail address</h6>
+              <p class="body item3">@emailAddress</p>
+          </div>
+        }
+
+    </div>
+      <img src="@contactImage" alt="@contactImageAlt" >
+  </div>
+</section>

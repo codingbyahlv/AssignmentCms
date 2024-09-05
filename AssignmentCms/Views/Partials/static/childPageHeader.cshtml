@@ -1,27 +1,35 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
 @using Umbraco.Cms.Core.Routing
 @using Umbraco.Extensions
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 
 @inject IPublishedUrlProvider PublishedUrlProvider
 
 @{ 
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var pageHeaderBackgroundImage = settings?.Value<IPublishedContent>("pageHeaderBackgroundImage")?.Url() ?? null;
     var selection = Model.Ancestors().ToArray(); 
     var pageTitle = Model.Name;
     if(Model.Value("pageTitle") != null && Model.Value("pageTitle") != ""){
     pageTitle = Model.Value("pageTitle").ToString();
     }
+    var pageHeaderBackgroundColorLabel = settings?.Value<ColorPickerValueConverter.PickedColor>("PageHeaderBackgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = (!string.IsNullOrEmpty(pageHeaderBackgroundColorLabel) && pageHeaderBackgroundColorLabel != "none") ? $"bg-{pageHeaderBackgroundColorLabel}" : "";
+    
+    var title = Model?.Value<string>("ChildPageTitle");
 }
 
-<section class="page-header-section" style="background-image: url('./images/pageHeader.svg');">
-    <h2 class="h2">@pageTitle</h2>
+<section class="page-header-section @backgroundColorClass"  style="background-image: url('@pageHeaderBackgroundImage');">
+    <h2 class="h2">@title</h2>
     @if (selection?.Length > 0)
     {
         @foreach (var item in selection.OrderBy(x => x.Level)){
 
-            <a href="@item.Url(PublishedUrlProvider)">@item.Name</a> <span class="divider">/</span>
+            <a class="breadcrumb" href="@item.Url(PublishedUrlProvider)">@item.Name</a> <i class="fa-regular fa-chevron-right breadcrumb"></i>
         }
-        <p class="body">@Model.Name</p>
+        <p class="body breadcrumb">@Model.Name</p>
     }
 </section>
 
