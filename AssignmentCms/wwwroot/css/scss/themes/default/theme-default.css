@@ -23,52 +23,74 @@ body {
   color: var(--color-default);
 }
 
-a {
+.link {
   color: var(--color-primary);
 }
-a:hover, a:focus, a:active {
+.link:hover, .link:focus, .link:active {
   color: var(--color-secondary);
 }
 
-.bg-dark a {
+.current {
+  color: var(--color-secondary);
+}
+
+.bg-dark .link {
   color: var(--color-light);
 }
-.bg-dark a:hover, .bg-dark a:focus, .bg-dark a:active {
+.bg-dark .link:hover, .bg-dark .link:focus, .bg-dark .link:active {
+  color: var(--color-accent);
+}
+.bg-dark .current {
   color: var(--color-accent);
 }
 
-.bg-primary a {
+.bg-primary .link {
   color: var(--color-light);
 }
-.bg-primary a:hover, .bg-primary a:focus, .bg-primary a:active {
+.bg-primary .link:hover, .bg-primary .link:focus, .bg-primary .link:active {
+  color: var(--color-accent);
+}
+.bg-primary .current {
   color: var(--color-accent);
 }
 
-.bg-secondary a {
+.bg-secondary .link {
   color: var(--color-light);
 }
-.bg-secondary a:hover, .bg-secondary a:focus, .bg-secondary a:active {
+.bg-secondary .link:hover, .bg-secondary .link:focus, .bg-secondary .link:active {
+  color: var(--color-light);
+}
+.bg-secondary .current {
   color: var(--color-light);
 }
 
-.bg-accent a {
+.bg-accent .link {
   color: var(--color-secondary);
 }
-.bg-accent a:hover, .bg-accent a:focus, .bg-accent a:active {
+.bg-accent .link:hover, .bg-accent .link:focus, .bg-accent .link:active {
+  color: var(--color-primary);
+}
+.bg-accent .current {
   color: var(--color-primary);
 }
 
-.bg-gray a {
-  color: var(--color-secondary);
-}
-.bg-gray a:hover, .bg-gray a:focus, .bg-gray a:active {
+.bg-gray .link {
   color: var(--color-primary);
 }
-
-.bg-light a {
+.bg-gray .link:hover, .bg-gray .link:focus, .bg-gray .link:active {
   color: var(--color-secondary);
 }
-.bg-light a:hover, .bg-light a:focus, .bg-light a:active {
+.bg-gray .current {
+  color: var(--color-secondary);
+}
+
+.bg-light .link {
+  color: var(--color-secondary);
+}
+.bg-light .link:hover, .bg-light .link:focus, .bg-light .link:active {
+  color: var(--color-primary);
+}
+.bg-light .current {
   color: var(--color-primary);
 }
 

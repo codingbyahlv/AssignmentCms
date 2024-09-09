@@ -106,15 +106,19 @@
 }
 
 @mixin link-colors($link-color, $hover-color) {
-  a {
-    color: var($link-color);
+    .link {
+        color: var($link-color);
 
-    &:hover,
-    &:focus,
-    &:active {
-      color: var($hover-color);
+        &:hover,
+        &:focus,
+        &:active {
+            color: var($hover-color);
+        }
     }
-  }
+
+    .current {
+        color: var($hover-color);
+    }
 }
 
 @mixin theme-links($bg-color, $link-color, $hover-color) {

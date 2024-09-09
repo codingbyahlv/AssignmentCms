@@ -1,35 +1,21 @@
 .topbar-section {
-  .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include tablet {
-      justify-content: space-between;
-    }
-    .address {
-      display: none;
-      @include tablet {
-        display: inline;
-      }
-    }
-    .social-media-wrapper {
-      display: flex;
-      @include tablet {
-        .social-media:nth-child(odd) {
-          border-left: 1px solid;
-          border-right: 1px solid;
-        }
-      }
-      .social-media {
+    .content {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 49px;
-        padding: 18px 0;
-        .fa-brands {
-          font-size: 13px;
+
+        @include tablet {
+            justify-content: space-between;
         }
-      }
+
+        .address {
+            display: none;
+
+            @include tablet {
+                display: inline;
+            }
+        }
+
+
     }
-  }
 }

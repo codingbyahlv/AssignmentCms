@@ -257,17 +257,17 @@ svg {
   }
 }
 
-a {
+.link {
   display: inline-block;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1em;
   text-decoration: none;
 }
-a:hover {
+.link:hover {
   text-decoration: underline;
 }
-a[target=_blank]::after {
+.link[target=_blank]::after {
   content: "\f08e";
   font-family: "Font Awesome 6 Pro";
   font-size: 0.8em;
@@ -310,25 +310,6 @@ a[target=_blank]::after {
   .topbar-section .content .address {
     display: inline;
   }
-}
-.topbar-section .content .social-media-wrapper {
-  display: flex;
-}
-@media (min-width: 768px) {
-  .topbar-section .content .social-media-wrapper .social-media:nth-child(odd) {
-    border-left: 1px solid;
-    border-right: 1px solid;
-  }
-}
-.topbar-section .content .social-media-wrapper .social-media {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 49px;
-  padding: 18px 0;
-}
-.topbar-section .content .social-media-wrapper .social-media .fa-brands {
-  font-size: 13px;
 }
 
 .header-section {
@@ -375,8 +356,10 @@ a[target=_blank]::after {
 .page-header-section {
   text-align: center;
   padding: 76px 0;
-  /*background-color: var(--color-gray);*/
   background-position: 50% 50%;
+}
+.page-header-section a {
+  font-weight: 400;
 }
 .page-header-section span {
   color: var(--color-secondary);
@@ -449,4 +432,26 @@ a[target=_blank]::after {
 .contact-section .contact-content .text-content .information-wrapper .item3 {
   grid-column: 2;
   grid-row: 2;
+}
+
+.social-media-wrapper {
+  display: flex;
+}
+.social-media-wrapper .social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 49px;
+  padding: 18px 0;
+}
+@media (min-width: 768px) {
+  .social-media-wrapper .social-media {
+    border-left: 1px solid;
+  }
+  .social-media-wrapper .social-media:last-child {
+    border-right: 1px solid;
+  }
+}
+.social-media-wrapper .social-media .fa-brands {
+  font-size: 13px;
 }

@@ -27,9 +27,9 @@
     {
         @foreach (var item in selection.OrderBy(x => x.Level)){
 
-            <a class="breadcrumb" href="@item.Url(PublishedUrlProvider)">@item.Name</a> <i class="fa-regular fa-chevron-right breadcrumb"></i>
+            <a class="breadcrumb link" href="@item.Url(PublishedUrlProvider)">@item.Name</a> <i class="fa-regular fa-chevron-right breadcrumb"></i>
         }
-        <p class="body breadcrumb">@Model.Name</p>
+        <p class="body breadcrumb current">@Model.Name</p>
     }
 </section>
 

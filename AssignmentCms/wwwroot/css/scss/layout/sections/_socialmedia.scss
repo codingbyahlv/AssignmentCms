@@ -1,0 +1,22 @@
+﻿.social-media-wrapper {
+    display: flex;
+
+    .social-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 49px;
+        padding: 18px 0;
+        @include tablet {
+            border-left: 1px solid;
+
+            &:last-child {
+                border-right: 1px solid;
+            }
+        }
+
+        .fa-brands {
+            font-size: 13px;
+        }
+    }
+}

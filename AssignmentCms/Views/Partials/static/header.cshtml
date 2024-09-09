@@ -23,7 +23,7 @@
         {
             @foreach (var item in selection)
             {
-                <a href="@item.Url(PublishedUrlProvider)" class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">@item.Name</a>
+                <a href="@item.Url(PublishedUrlProvider)" class="link @(item.IsAncestorOrSelf(Model) ? "current" : null)">@item.Name</a>
             }
         }
     </nav>
