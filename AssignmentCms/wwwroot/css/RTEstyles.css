@@ -1,14 +1,79 @@
-/**umb_name:Big heading*/
+/**umb_name:Label*/
+.label {
+	
+}
+
+/**umb_name:Paragraph*/
+.body {
+	
+}
+
+/**umb_name:Note1*/
+.note1 {
+	
+}
+
+/**umb_name:Note2*/
+.note2 {
+	
+}
+
+/**umb_name:Subtitle1*/
+.subtitle1 {
+	
+}
+
+/**umb_name:Subtitle2*/
+.subtitle2 {
+	
+}
+
+/**umb_name:Subtitle3*/
+.subtitle3 {
+	
+}
+
+/**umb_name:Quotation*/
+.quote {
+	
+}
+
+/**umb_name:Slide text*/
+.slide {
+	
+}
+
+/**umb_name:Heading 1 Extension*/
 .h1-extension {
 	
 }
 
-/**umb_name:Section heading*/
+/**umb_name:Heading 1*/
+.h1 {
+	
+}
+
+/**umb_name:Heading 2*/
 .h2 {
 	
 }
 
-/**umb_name:Section label*/
-.label {
+/**umb_name:Heading 3*/
+.h3 {
+	
+}
+
+/**umb_name:Heading 4*/
+.h4 {
+	
+}
+
+/**umb_name:Heading 5*/
+.h5 {
+	
+}
+
+/**umb_name:Heading 6*/
+.h6 {
 	
 }

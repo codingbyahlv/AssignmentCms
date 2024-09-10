@@ -12,17 +12,21 @@
     var pageHeaderBackgroundImage = settings?.Value<IPublishedContent>("pageHeaderBackgroundImage")?.Url() ?? null;
     var selection = Model.Ancestors().ToArray(); 
     var pageTitle = Model.Name;
-    if(Model.Value("pageTitle") != null && Model.Value("pageTitle") != ""){
-    pageTitle = Model.Value("pageTitle").ToString();
-    }
     var pageHeaderBackgroundColorLabel = settings?.Value<ColorPickerValueConverter.PickedColor>("PageHeaderBackgroundColor")?.Label.ToLower() ?? null;
     var backgroundColorClass = (!string.IsNullOrEmpty(pageHeaderBackgroundColorLabel) && pageHeaderBackgroundColorLabel != "none") ? $"bg-{pageHeaderBackgroundColorLabel}" : "";
     
     var title = Model?.Value<string>("ChildPageTitle");
+    if(Model.Value("pageTitle") != null && Model.Value("pageTitle") != ""){
+        pageTitle = Model.Value("pageTitle").ToString();
+    }
 }
 
 <section class="page-header-section @backgroundColorClass"  style="background-image: url('@pageHeaderBackgroundImage');">
-    <h2 class="h2">@title</h2>
+    @if(string.IsNullOrEmpty(title)){
+        <h2 class="h2">@pageTitle</h2>
+    } else{
+        <h2 class="h2">@title</h2>
+    }
     @if (selection?.Length > 0)
     {
         @foreach (var item in selection.OrderBy(x => x.Level)){

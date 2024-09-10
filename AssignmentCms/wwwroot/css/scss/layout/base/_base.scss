@@ -1,7 +1,7 @@
 img,
 svg {
   vertical-align: middle;
-
+  max-width: 100%;
 }
 
 .spacing-top{
@@ -13,7 +13,6 @@ svg {
 }
 
 .center{
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -21,3 +20,4 @@ svg {
 .centerText{
     text-align: center;
 }
+

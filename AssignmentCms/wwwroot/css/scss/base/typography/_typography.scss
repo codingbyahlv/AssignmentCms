@@ -9,6 +9,7 @@
 }
 .h2 {
   @include heading("h2", "bold"); //40px
+  margin-bottom: 32px;
 }
 .h3 {
   @include heading("h3", "bold"); //30px
@@ -23,7 +24,7 @@
   @include heading("h6", "bold"); //18px
 }
 .subtitle1 {
-  @include heading("sub1", "bold"); //18px
+  @include heading("sub1", "semibold"); //18px
 }
 .subtitle2 {
   @include heading("sub2", "medium"); //16px
@@ -34,11 +35,9 @@
 
 .body {
   @include text("body", "regular"); //14px
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
-// .body-semi{
-//   @include text("body", "semibold"); //14px
-// }
-
 .note1 {
   @include text("note1", "regular"); //13px
 }
@@ -50,9 +49,12 @@
   text-transform: uppercase;
 }
 .slide {
-  @include text("slide", "regular"); //16px
+    @include text("slide", "regular"); //16px
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .quote {
   @include text("quote", "light"); //20px
   font-style: italic;
+  margin-bottom: 8px;
 }

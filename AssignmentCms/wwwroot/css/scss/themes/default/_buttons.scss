@@ -4,7 +4,7 @@
 
 //FINNS!!
 .btn-primary {
-  @include button-colors(--color-primary, --color-secondary, --color-accent, --color-primary);
+  @include button-colors(--color-primary, --color-accent, --color-accent, --color-primary);
 }
 
 .btn-secondary {

@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "childPageLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle");
+}
+<section>
+    <div class="container">
+    @Model.Value("pageContent")
+        </div>
+</section>

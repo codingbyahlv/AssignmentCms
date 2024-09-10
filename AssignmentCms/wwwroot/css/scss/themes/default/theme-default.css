@@ -113,7 +113,7 @@ body {
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-secondary);
+  color: var(--color-accent);
   border-color: var(--color-primary);
   -webkit-tap-hightlight-color: transparent;
   -webkit-tap-hightlight-color: rgba(0, 0, 0, 0);

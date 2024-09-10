@@ -5,21 +5,21 @@
 }
 
 @mixin btn {
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 3px;
-  border: 1px solid;
-  padding: 15px 40px;
-  font-size: 16px;
-  transition: 0.25s;
-  text-decoration: none !important;
-  background-color: transparent;
-  @include button;
-
-  &:hover {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid;
+    padding: 15px 40px;
+    font-size: 16px;
     transition: 0.25s;
-    text-decoration: none;
-  }
+    text-decoration: none !important;
+    background-color: transparent;
+    @include button;
+
+    &:hover {
+        transition: 0.25s;
+        text-decoration: none;
+    }
 }
 
 @mixin btn-circle {

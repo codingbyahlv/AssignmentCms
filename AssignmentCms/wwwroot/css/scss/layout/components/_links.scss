@@ -4,10 +4,6 @@
   font-size: 1em;
   text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
-
   &[target="_blank"] {
     &::after {
       content: "\f08e";

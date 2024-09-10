@@ -26,6 +26,8 @@
     row-gap: var(--umb-block-grid--areas-row-gap, 0);
 }
 
+
+
 .umb-block-grid__area {
     position: relative;
     height: 100%;
@@ -44,4 +46,10 @@
     .umb-block-grid__area {
         grid-column-end: span min(var(--umb-block-grid--area-column-span, 1), var(--umb-block-grid--area-grid-columns));
     }
+}
+
+//Customized
+.umb-block-grid__area-container {
+    width: 100%;
+
 }

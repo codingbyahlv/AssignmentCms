@@ -7,9 +7,10 @@
     var buttonLinkUrl = Model?.Content.Value<string>("buttonLinkUrl");
     var buttonLinkColor = Model?.Content?.Value<ColorPickerValueConverter.PickedColor>("buttonLinkColor")?.Label.ToLower() ?? null;
     var buttonLinkColorClass = (!string.IsNullOrEmpty(buttonLinkColor)) ? $"btn-{buttonLinkColor}" : "";
+    var shouldCenter = Model?.Content.Value<bool>("centerButton");
 }
 
-<a href="@buttonLinkUrl" class="btn @buttonLinkColorClass">@buttonLinkText</a>
+<a href="@buttonLinkUrl" class="btn @buttonLinkColorClass" data-should-center="@shouldCenter">@buttonLinkText</a>
 
 
 

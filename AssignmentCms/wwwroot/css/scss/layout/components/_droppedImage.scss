@@ -1,0 +1,34 @@
+﻿.dropped-image {
+    position: absolute;
+    z-index: 200;
+    bottom: -350px;
+    min-height: 400px;
+
+    @media (min-width: 576px) {
+        bottom: -200px;
+    }
+
+    @include tablet {
+        bottom: -170px;
+    }
+
+    @include desktop {
+        bottom: -150px;
+    }
+}
+
+.dropped-image-padding {
+    height: 80px;
+
+    @media (min-width: 576px) {
+        height: 220px;
+    }
+
+    @include tablet {
+        height: 350px;
+    }
+
+    @include desktop {
+        height: 400px;
+    }
+}

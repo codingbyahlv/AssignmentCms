@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+
+@{
+	var number = Model.Content?.Value<int>("numberOfCards") ?? 6;
+    var showPagination = Model.Content.Value<bool>("usePagination");
+	var selection = Umbraco.Content(Guid.Parse("24587eb8-e9c2-4537-a7fe-e8a47a720ebd"))
+    .ChildrenOfType("serviceItem")
+    .Where(x => x.IsVisible())
+	.Take(number);
+	
+}
+<div class="service-wrapper">
+	@foreach (var item in selection)
+	{
+		var image = item?.Value<IPublishedContent>("pageThumbnail")?.Url() ?? "";
+		var description = item?.Value<string>("pageDescription") ?? "";
+		<a class="link" href="@item.Url()">
+			<article class="service-item bg-light">
+				<h5 class="h5">@item.Name()</h5>
+				<img src="@image" alt="" />
+				<p class="body">@description</p>
+			</article>	
+		</a>	
+	}
+	@if(showPagination){
+		<div>[paginering]</div>
+
+	}
+</div>
+

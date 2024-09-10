@@ -1,0 +1,8 @@
+﻿.hero-section {
+    background-size: cover;
+    background-position: 60% 0%;
+
+    @include tablet {
+        background-position: 55% 0%;
+    }
+}

@@ -18,6 +18,8 @@
 @import "./layout/components/container";
 @import "./layout/components/links";
 @import "./layout/components/wrapper";
+@import "./layout/components/droppedImage";
+@import "./layout/components/backgrounds";
 
 @import "./layout/sections/topbar";
 @import "./layout/sections/header";
@@ -25,6 +27,7 @@
 @import "./layout/sections/pageHeader";
 @import "./layout/sections/contact";
 @import "./layout/sections/socialmedia";
+@import "./layout/sections/imageSlider";
 
 //THEMES - default theme
 // direct import
