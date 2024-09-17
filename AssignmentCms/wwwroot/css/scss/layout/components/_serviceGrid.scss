@@ -1,0 +1,32 @@
+.service-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+
+    @include desktop {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-item {
+        border: 1px solid var(--color-border-gray);
+
+        .h5 {
+            padding: 30px;
+        }
+
+        .body {
+            padding: 30px;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .service-pagination {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+    }
+}

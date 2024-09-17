@@ -28,10 +28,12 @@ namespace AssignmentCms.Controllers
                 ViewData["error_email"] = string.IsNullOrEmpty(form.Email);
                 ViewData["error_message"] = string.IsNullOrEmpty(form.Message);
 
+                //Lägg in hantering till api osv här
+
                 return CurrentUmbracoPage();
             }
 
-            ViewData["success"] = "Success!";
+            TempData["success"] = "Form submitted!";
             return RedirectToCurrentUmbracoPage();
 
         }

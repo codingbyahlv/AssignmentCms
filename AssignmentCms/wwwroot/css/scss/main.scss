@@ -14,20 +14,21 @@
 @import "./layout/base/base";
 @import "./layout/base/media";
 
+@import "./layout/components/backgrounds";
 @import "./layout/components/buttons";
 @import "./layout/components/container";
-@import "./layout/components/links";
-@import "./layout/components/wrapper";
 @import "./layout/components/droppedImage";
-@import "./layout/components/backgrounds";
+@import "./layout/components/links";
+@import "./layout/components/serviceGrid";
+@import "./layout/components/wrapper";
 
-@import "./layout/sections/topbar";
-@import "./layout/sections/header";
-@import "./layout/sections/footer";
-@import "./layout/sections/pageHeader";
 @import "./layout/sections/contact";
-@import "./layout/sections/socialmedia";
+@import "./layout/sections/footer";
+@import "./layout/sections/header";
 @import "./layout/sections/imageSlider";
+@import "./layout/sections/pageHeader";
+@import "./layout/sections/socialmedia";
+@import "./layout/sections/topbar";
 
 //THEMES - default theme
 // direct import

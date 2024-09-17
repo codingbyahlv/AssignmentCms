@@ -1,7 +1,15 @@
+@import "_media.scss";
+
 img,
 svg {
   vertical-align: middle;
   max-width: 100%;
+}
+.half-background {
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position: right top;
+  
 }
 
 .spacing-top{
@@ -21,3 +29,25 @@ svg {
     text-align: center;
 }
 
+
+.umb-block-grid__layout-item[data-content-element-type-alias="imgPositioned"] {
+    @include desktop {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45%;
+        height: 100%;
+    }
+
+    .img-positioned {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
+        @include desktop {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}
