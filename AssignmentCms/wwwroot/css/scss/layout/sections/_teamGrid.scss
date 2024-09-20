@@ -1,0 +1,20 @@
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; 
+    grid-auto-flow: row; 
+   
+    .team-item {
+        border: 1px solid red;
+        justify-self: start;
+    }
+
+    .team-item:nth-child(n+4) {
+        border:1px solid blue;
+        grid-column: span 1;
+        grid-template-columns: repeat(4, 1fr);
+
+    }
+}
+
+//EJ KLAR!!!!!!!!!!!!!!!!

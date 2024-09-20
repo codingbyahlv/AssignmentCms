@@ -567,6 +567,22 @@ svg {
   font-size: 13px;
 }
 
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  grid-auto-flow: row;
+}
+.team-grid .team-item {
+  border: 1px solid red;
+  justify-self: start;
+}
+.team-grid .team-item:nth-child(n+4) {
+  border: 1px solid blue;
+  grid-column: span 1;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .topbar-section .content {
   display: flex;
   justify-content: center;

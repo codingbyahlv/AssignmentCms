@@ -1,1 +1,20 @@
-﻿
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var teamMembers = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("teamMembers");
+}
+
+@if(teamMembers != null){
+    <div class="team-grid">
+        @foreach(var item in teamMembers)
+        {
+            var teamMemberImage = item?.Content.Value<IPublishedContent>("teamMemberImage")?.Url();
+            var teamMemberName = item?.Content.Value<string>("teamMemberName") ?? "";
+            var teamMemberTitle = item?.Content.Value<string>("teamMemberTitle") ?? "";
+
+                <p class="team-item">@teamMemberName</p>
+ 
+        } 
+    </div>
+}
