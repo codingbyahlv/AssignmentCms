@@ -393,6 +393,56 @@ svg {
   justify-content: center;
 }
 
+.service-details {
+  display: flex;
+}
+.service-details .aside {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .service-details .aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 0 0 350px;
+    padding-right: 52px;
+    border-right: 1px solid var(--color-border-gray);
+  }
+  .service-details .aside .bg-primary {
+    padding: 20px;
+    margin-top: 45px;
+  }
+  .service-details .aside .bg-primary .body {
+    color: var(--color-light);
+  }
+}
+.service-details .page-content {
+  padding-left: 52px;
+}
+.service-details .page-content img {
+  width: 100%;
+  height: auto;
+}
+.service-details .page-content ul {
+  margin: 0;
+  padding: 0px;
+  list-style-type: none;
+}
+.service-details .page-content ul li {
+  position: relative;
+  padding-left: 20px;
+}
+.service-details .page-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+}
+
 .wrapper {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
@@ -568,19 +618,47 @@ svg {
 }
 
 .team-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.team-grid .grid1 {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+@media (min-width: 1200px) {
+  .team-grid .grid1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.team-grid .grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  grid-auto-rows: auto;
+}
+@media (min-width: 1200px) {
+  .team-grid .grid2 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.team-grid .grid2 > .team-item:nth-child(n+3) .item-content {
+  padding: 21px 24px;
 }
 .team-grid .team-item {
-  border: 1px solid red;
-  justify-self: start;
+  border: 1px solid var(--color-border-gray);
+  width: 100%;
 }
-.team-grid .team-item:nth-child(n+4) {
-  border: 1px solid blue;
-  grid-column: span 1;
-  grid-template-columns: repeat(4, 1fr);
+.team-grid .team-item img {
+  width: 100%;
+}
+.team-grid .team-item .item-content {
+  padding: 21px 28px;
+}
+.team-grid .team-item .item-content .note1 {
+  color: var(--color-primary);
 }
 
 .topbar-section .content {

@@ -3,18 +3,45 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
     var teamMembers = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("teamMembers");
+    var teamList = teamMembers?.ToList();
 }
 
-@if(teamMembers != null){
+@if (teamList != null)
+{
     <div class="team-grid">
-        @foreach(var item in teamMembers)
-        {
-            var teamMemberImage = item?.Content.Value<IPublishedContent>("teamMemberImage")?.Url();
-            var teamMemberName = item?.Content.Value<string>("teamMemberName") ?? "";
-            var teamMemberTitle = item?.Content.Value<string>("teamMemberTitle") ?? "";
+        <div class="grid1">
+            @for (int i = 0; i < Math.Min(3, teamList.Count); i++)
+            {
+                var teamMember = teamList[i];
+                var teamMemberImage = teamMember?.Content.Value<IPublishedContent>("teamMemberImage")?.Url();
+                var teamMemberName = teamMember?.Content.Value<string>("teamMemberName") ?? "";
+                var teamMemberTitle = teamMember?.Content.Value<string>("teamMemberTitle") ?? "";
 
-                <p class="team-item">@teamMemberName</p>
- 
-        } 
+                <article class="team-item">
+                    <img src="@teamMemberImage" alt="" />
+                    <div class="item-content">
+                        <h5 class="h5">@teamMemberName</h5>
+                        <p class="note1">@teamMemberTitle</p>
+                    </div>
+                </article>
+            }
+        </div>
+        <div class="grid2">
+            @for (int i = 3; i < teamList.Count; i++)
+            {
+                var teamMember = teamList[i];
+                var teamMemberImage = teamMember?.Content.Value<IPublishedContent>("teamMemberImage")?.Url();
+                var teamMemberName = teamMember?.Content.Value<string>("teamMemberName") ?? "";
+                var teamMemberTitle = teamMember?.Content.Value<string>("teamMemberTitle") ?? "";
+
+                <article class="team-item">
+                    <img src="@teamMemberImage" alt="" />
+                    <div class="item-content">
+                        <h5 class="h5">@teamMemberName</h5>
+                        <p class="note1">@teamMemberTitle</p>
+                    </div>
+                </article>
+            }
+        </div>
     </div>
 }

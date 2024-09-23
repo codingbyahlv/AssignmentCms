@@ -5,17 +5,26 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="wwwroot\NewFolder\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\css\scss\layout\components\_serviceGrid.scss" />
+    <Content Remove="wwwroot\css\scss\layout\components\_serviceItem.scss" />
     <Content Remove="wwwroot\css\scss\layout\sections\_teamGrid.scss" />
   </ItemGroup>
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\scss\layout\components\_serviceGrid.scss" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\scss\layout\components\_serviceItem.scss" />
     <_ContentIncludedByDefault Remove="wwwroot\css\scss\layout\sections\_teamGrid.scss" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compilerconfig.json" />
     <None Include="wwwroot\css\scss\layout\components\_serviceGrid.scss" />
+    <None Include="wwwroot\css\scss\layout\components\_serviceItem.scss" />
     <None Include="wwwroot\css\scss\layout\sections\_teamGrid.scss" />
   </ItemGroup>
 

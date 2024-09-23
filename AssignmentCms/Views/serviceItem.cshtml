@@ -4,8 +4,24 @@
 	Layout = "childPageLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle");
 }
-<section>
-    <div class="container">
-    @Model.Value("pageContent")
+<section class="spacing-top spacing-bottom">
+    <div class="container service-details">
+        <aside class="aside">
+            <h5 class="h5">About us</h5>
+            <img src="/static_media/service2.svg" alt="" />
+            <p class="body">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+        
+        
+            @* FLYTTA UT TILL PARTIAL *@
+            <form class="bg-primary">
+                <h5 class="h5">How can we help you?</h5>
+                <p class="body">online support 24/7, we are here to help you</p>
+                <input type="text" />
+            </form>
+        
+        </aside>
+        <div class="page-content">
+            @Model.Value("pageContent")
         </div>
+    </div>
 </section>
