@@ -1,0 +1,74 @@
+.help-form-big {
+    width: 100%;
+
+    form {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+
+        @include desktop {
+            grid-template-columns: repeat(2, 1fr);
+
+            .h4 {
+                grid-column: span 2;
+            }
+
+            .input-wrapper {
+                grid-column: span 1;
+
+                &:first-child {
+                    grid-column: span 1;
+                }
+
+                &:nth-child(2) {
+                    grid-column: span 1; // Second input in the second column
+                }
+            }
+        }
+
+        .textarea-wrapper {
+            grid-column: span 1;
+
+            @media (min-width: 768px) {
+                grid-column: span 2; // Textarea spans both columns on desktop
+            }
+        }
+
+        .input, .textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid var(--color-border-gray);
+            font-family: "Poppins", sans-serif;
+            font-style: italic;
+
+            &::placeholder {
+                color: var(--color-primary-light);
+            }
+        }
+
+        .input {
+            height: 52px;
+        }
+
+        .textarea {
+            height: 175px;
+        }
+
+        button {
+            grid-column: span 1; // Default spans 1 column for mobile
+
+            @media (min-width: 768px) {
+                grid-column: 1 / 2; // On desktop, button is placed in column 1
+                justify-self: start; // Left-aligned
+            }
+        }
+
+        .form-input-error {
+            color: transparent;
+        }
+
+        .form-invalid-input {
+            color: red;
+        }
+    }
+}

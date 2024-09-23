@@ -10,12 +10,9 @@ using Umbraco.Cms.Web.Website.Controllers;
 
 namespace AssignmentCms.Controllers
 {
-    public class ContactSurfaceController : SurfaceController
+    public class ContactSurfaceController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider) : SurfaceController(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
     {
-        public ContactSurfaceController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
-        {
-        }
-
+        [HttpPost]
         public IActionResult HandleSubmit(ContactFormModel form)
         {
             if (!ModelState.IsValid)
@@ -37,5 +34,26 @@ namespace AssignmentCms.Controllers
             return RedirectToCurrentUmbracoPage();
 
         }
+
+        //NOT WORKING!!!!
+
+        //[HttpPost]
+        //public IActionResult HandleSubmitHelpSmall(ContactFormModel formSmall)
+        //{
+
+        //    if (!ModelState.IsValid)
+        //    {
+
+        //        ViewData["email"] = formSmall.Email;
+        //        ViewData["error_email_small"] = string.IsNullOrEmpty(formSmall.Email);
+
+        //        //Lägg in hantering till api osv här
+
+        //        return CurrentUmbracoPage();
+        //    }
+
+        //    TempData["successSmall"] = "Form submitted!";
+        //    return RedirectToCurrentUmbracoPage();
+        //}
     }
 }

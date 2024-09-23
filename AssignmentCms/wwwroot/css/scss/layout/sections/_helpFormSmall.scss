@@ -1,0 +1,16 @@
+.help-form-small {
+    padding: 20px;
+    margin-top: 45px;
+
+    .body {
+        color: var(--color-light);
+    }
+
+    .form-input-error {
+        color: transparent;
+    }
+
+    .form-invalid-input {
+        color: red;
+    }
+}

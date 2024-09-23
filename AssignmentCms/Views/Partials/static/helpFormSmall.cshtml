@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    bool.TryParse(ViewData["error_email_small"]?.ToString( )!, out bool error_email_small);
+}
+
+<div class="help-form-small bg-primary">
+    @using (Html.BeginUmbracoForm("HandleSubmitHelpSmall", "ContactSurface", FormMethod.Post))
+    {
+        <h5 class="h5">How can we help you?</h5>
+        <p class="body">online support 24/7, we are here to help you</p>
+        <div>
+            <label class="" for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="Skriv placeholder" class="" value="@ViewData["email"]">
+            <span class="form-input-error @((error_email_small) ? "form-invalid-input" : null)" >Errormeddelande</span>
+        </div>
+
+        <button type="submit">Send</button>
+    
+        @if (TempData["success"] != null) 
+        {
+            <div class="success-message">@TempData["successSmall"]</div>
+        }
+    }
+</div>

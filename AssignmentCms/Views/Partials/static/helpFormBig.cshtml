@@ -1,0 +1,34 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
+}
+
+<section class="help-form-big spacing-top spacing-bottom">
+    @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+    {
+        <h4 class="h4">Have a question?</h4>
+        <div class="input-wrapper">
+            <input id="name" name="name" type="text" placeholder="Name" class="input" value="@ViewData["name"]">
+            <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">Errormeddelande</span> 
+        </div>
+        <div class="input-wrapper">
+            <input id="email" name="email" type="email" placeholder="Email" class="input" value="@ViewData["email"]">
+            <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">Please enter an email address</span>
+        </div>
+        <div class="textarea-wrapper">
+            <textarea id="message" name="message" placeholder="Question" class="textarea">@ViewData["message"]</textarea>
+            <span class="form-input-error @((error_message) ? "form-invalid-input" : null)">Errormeddelande</span>
+        </div>
+        <button class="btn-primary" type="submit">Submit</button>
+
+        @if (TempData["success"] != null)
+        {
+            <div class="success-message">@TempData["success"]</div>
+        }
+    }
+</section>
+
+

@@ -408,13 +408,6 @@ svg {
     padding-right: 52px;
     border-right: 1px solid var(--color-border-gray);
   }
-  .service-details .aside .bg-primary {
-    padding: 20px;
-    margin-top: 45px;
-  }
-  .service-details .aside .bg-primary .body {
-    color: var(--color-light);
-  }
 }
 .service-details .page-content {
   padding-left: 52px;
@@ -562,6 +555,85 @@ svg {
   .header-section .btn-menu {
     display: none;
   }
+}
+
+.help-form-small {
+  padding: 20px;
+  margin-top: 45px;
+}
+.help-form-small .body {
+  color: var(--color-light);
+}
+.help-form-small .form-input-error {
+  color: transparent;
+}
+.help-form-small .form-invalid-input {
+  color: red;
+}
+
+.help-form-big {
+  width: 100%;
+}
+.help-form-big form {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1200px) {
+  .help-form-big form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .help-form-big form .h4 {
+    grid-column: span 2;
+  }
+  .help-form-big form .input-wrapper {
+    grid-column: span 1;
+  }
+  .help-form-big form .input-wrapper:first-child {
+    grid-column: span 1;
+  }
+  .help-form-big form .input-wrapper:nth-child(2) {
+    grid-column: span 1;
+  }
+}
+.help-form-big form .textarea-wrapper {
+  grid-column: span 1;
+}
+@media (min-width: 768px) {
+  .help-form-big form .textarea-wrapper {
+    grid-column: span 2;
+  }
+}
+.help-form-big form .input, .help-form-big form .textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border-gray);
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+}
+.help-form-big form .input::placeholder, .help-form-big form .textarea::placeholder {
+  color: var(--color-primary-light);
+}
+.help-form-big form .input {
+  height: 52px;
+}
+.help-form-big form .textarea {
+  height: 175px;
+}
+.help-form-big form button {
+  grid-column: span 1;
+}
+@media (min-width: 768px) {
+  .help-form-big form button {
+    grid-column: 1/2;
+    justify-self: start;
+  }
+}
+.help-form-big form .form-input-error {
+  color: transparent;
+}
+.help-form-big form .form-invalid-input {
+  color: red;
 }
 
 .image-slider {
