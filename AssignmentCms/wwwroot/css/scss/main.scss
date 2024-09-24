@@ -14,11 +14,14 @@
 @import "./layout/base/base";
 @import "./layout/base/media";
 
+@import "./layout/components/aside";
 @import "./layout/components/backgrounds";
 @import "./layout/components/buttons";
 @import "./layout/components/container";
 @import "./layout/components/droppedImage";
 @import "./layout/components/links";
+@import "./layout/components/projectItem";
+@import "./layout/components/projectGrid";
 @import "./layout/components/serviceGrid";
 @import "./layout/components/serviceItem";
 @import "./layout/components/wrapper";

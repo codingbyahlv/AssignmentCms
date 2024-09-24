@@ -1,16 +1,57 @@
 .help-form-small {
-    padding: 20px;
     margin-top: 45px;
 
-    .body {
-        color: var(--color-light);
-    }
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
 
-    .form-input-error {
-        color: transparent;
-    }
+        .h5 {
+            color: var(--color-accent) !important;
+        }
 
-    .form-invalid-input {
-        color: red;
+        .body {
+            color: var(--color-light);
+        }
+
+        .input-wrapper {
+            position: relative;
+
+            input {
+                width: 100%;
+                padding: 16px;
+                border-radius: 3px;
+                border: none;
+
+                &::placeholder {
+                    font-style: italic;
+                    font-family: "Poppins", sans-serif;
+                }
+            }
+
+            .send-btn {
+                position: absolute;
+                top: 4px;
+                right: 2px;
+                color: var(--color-primary);
+                background-color: transparent;
+                border: none;
+                padding: 8px;
+                font-size: 22px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .form-input-error {
+                display: none;
+            }
+
+            .form-invalid-input {
+                display: block;
+                color: red;
+            }
+        }
     }
 }

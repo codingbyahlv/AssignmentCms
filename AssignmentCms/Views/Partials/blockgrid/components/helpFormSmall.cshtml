@@ -1,5 +1,7 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
 @{
     bool.TryParse(ViewData["error_email_small"]?.ToString( )!, out bool error_email_small);
 }
@@ -11,11 +13,11 @@
         <p class="body">online support 24/7, we are here to help you</p>
         <div class="input-wrapper">
             <input id="email" name="email" type="email" placeholder="Email address" class="" value="@ViewData["email"]">
-            <span class="form-input-error @((error_email_small) ? "form-invalid-input" : null)">Enter your email</span>
+            <span class="form-input-error @((error_email_small) ? "form-invalid-input" : null)" >Enter your email</span>
             <button class="send-btn" type="submit"><i class="fa-regular fa-envelope"></i></button>
         </div>
-
-        @if (TempData["successSmall"] != null)
+    
+        @if (TempData["successSmall"] != null) 
         {
             <div class="success-message">@TempData["successSmall"]</div>
         }

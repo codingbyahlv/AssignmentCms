@@ -1,0 +1,12 @@
+.project-details {
+    display: flex;
+
+    .page-content {
+        flex-grow: 1;
+        padding-right: 52px;
+
+        @include desktop {
+            border-right: 1px solid var(--color-border-gray);
+        }
+    }
+}

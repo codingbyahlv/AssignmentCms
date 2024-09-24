@@ -1,0 +1,10 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+      var positionRightClass = (Model.Content.Value<bool>("positionRight")) ? "aside-position-right" : "";
+}
+
+<aside class="aside @positionRightClass">
+     @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+</aside>

@@ -1,0 +1,28 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProjectItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+
+
+@{
+	Layout = "childPageLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle");
+}
+
+<section class="spacing-top spacing-bottom">
+    <div class="container project-details">
+        <div class="page-content">
+            @Model.Value("projectContent")
+        </div>
+        <aside class="aside aside-position-right">
+            <h5 class="h5">Recent projects</h5>
+            [lägg in projekt]
+            <h5 class="h5">Tags</h5>
+            [lägg in tags]
+            @await Html.PartialAsync("partials/static/helpFormSmall.cshtml")
+        
+        </aside>
+    </div>
+</section>
+
+@await Html.GetBlockGridHtmlAsync(Model.PageLayout)

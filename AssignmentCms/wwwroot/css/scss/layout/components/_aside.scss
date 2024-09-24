@@ -1,0 +1,17 @@
+.aside {
+    display: none;
+
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex: 0 0 350px;
+        padding-right: 52px;
+        height: 100%;
+    }
+}
+
+.aside-position-right {
+    padding-right:0;
+    padding-left: 52px;
+}
