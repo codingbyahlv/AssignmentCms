@@ -12,12 +12,11 @@
         <div>
             <label class="" for="email">E-mail</label>
             <input id="email" name="email" type="email" placeholder="Skriv placeholder" class="" value="@ViewData["email"]">
-            <span class="form-input-error @((error_email_small) ? "form-invalid-input" : null)" >Errormeddelande</span>
+            <span class="form-input-error @((error_email_small) ? "form-invalid-input" : null)" >Enter your email</span>
         </div>
-
         <button type="submit">Send</button>
     
-        @if (TempData["success"] != null) 
+        @if (TempData["successSmall"] != null) 
         {
             <div class="success-message">@TempData["successSmall"]</div>
         }

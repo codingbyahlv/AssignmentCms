@@ -35,25 +35,23 @@ namespace AssignmentCms.Controllers
 
         }
 
-        //NOT WORKING!!!!
+        [HttpPost]
+        public IActionResult HandleSubmitHelpSmall(SmallContactFormModel formSmall)
+        {
 
-        //[HttpPost]
-        //public IActionResult HandleSubmitHelpSmall(ContactFormModel formSmall)
-        //{
+           if (!ModelState.IsValid)
+            {
 
-        //    if (!ModelState.IsValid)
-        //    {
+                ViewData["email"] = formSmall.Email;
+                ViewData["error_email_small"] = string.IsNullOrEmpty(formSmall.Email);
 
-        //        ViewData["email"] = formSmall.Email;
-        //        ViewData["error_email_small"] = string.IsNullOrEmpty(formSmall.Email);
+                //Lägg in hantering till api osv här
 
-        //        //Lägg in hantering till api osv här
+                return CurrentUmbracoPage();
+            }
 
-        //        return CurrentUmbracoPage();
-        //    }
-
-        //    TempData["successSmall"] = "Form submitted!";
-        //    return RedirectToCurrentUmbracoPage();
-        //}
+            TempData["successSmall"] = "Form submitted!";
+            return RedirectToCurrentUmbracoPage();
+        }
     }
 }
