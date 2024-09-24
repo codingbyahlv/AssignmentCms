@@ -2,16 +2,21 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 
 @{
-	var number = Model.Content?.Value<int>("numberOfCards") ?? 6;
-    var showPagination = Model.Content.Value<bool>("usePagination");
+	var itemsPerPage = Model.Content?.Value<int>("numberOfCards") ?? 6;
+	var showPagination = Model.Content.Value<bool>("usePagination");
 	var selection = Umbraco.Content(Guid.Parse("24587eb8-e9c2-4537-a7fe-e8a47a720ebd"))
-    .ChildrenOfType("serviceItem")
-    .Where(x => x.IsVisible())
-	.Take(number);
-	
+	.ChildrenOfType("serviceItem")
+	.Where(x => x.IsVisible());
+
+
+	if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+		currentPage = 1;
+
+	var totalItems = selection?.Count() ?? 0;
+	var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 }
 <div class="service-wrapper">
-	@foreach (var item in selection)
+	@foreach (var item in pagedItems)
 	{
 		var image = item?.Value<IPublishedContent>("pageThumbnail")?.Url() ?? "";
 		var description = item?.Value<string>("pageDescription") ?? "";
@@ -23,9 +28,32 @@
 			</article>	
 		</a>	
 	}
-	@if(showPagination){
-		<div class="service-pagination">[paginering]</div>
 
+	@if(showPagination){
+		<div class="pagination-wrapper">
+			@if(currentPage > 1)
+			{
+				<a href="?page=@(currentPage - 1)" class="subtitle1 change">Prev</a>
+			}
+			else
+			{
+				<span class="subtitle1 change inactive">Prev</span>
+			}
+			<div class="pages">
+				@for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+				{
+					<a href="?page=@i" class="subtitle1 @((i == currentPage) ? "number active" : "number")">@i</a>
+				}
+			</div>
+			@if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage))
+			{
+				<a href="?page=@(currentPage + 1)" class="subtitle1 change">Next</a>
+			}
+			else
+			{
+				<span class="subtitle1 change inactive">Next</span>
+			}
+		</div>
 	}
 </div>
 

@@ -2,33 +2,61 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 
 @{
-	var number = Model.Content?.Value<int>("numberOfCards") ?? 4;
-    var showPagination = Model.Content.Value<bool>("usePagination");
+	var itemsPerPage = Model.Content?.Value<int>("numberOfCards") ?? 4;
+	var showPagination = Model.Content.Value<bool>("usePagination");
 	var selection = Umbraco.Content(Guid.Parse("88f70064-0848-45eb-a997-81295849fe02"))
-    .ChildrenOfType("projectItem")
-    .Where(x => x.IsVisible())
-	.Take(number);
+	.ChildrenOfType("projectItem")
+	.Where(x => x.IsVisible());
+
+	if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+		currentPage = 1;
+
+	var totalItems = selection?.Count() ?? 0;
+	var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 }
 <div class="project-wrapper">
-	@foreach (var item in selection)
+	@foreach (var item in pagedItems)
 	{
-		var image = item?.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
+		var image = item.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
 		var projectDate = item.Value<DateTime>("projectDate");
 		var projectDescription = item.Value<string>("projectDescription");
 		
-			<article class="project-item bg-light">
-				<img src="@image" alt="" class="project-image"/>
-				<div class="item-content">
-					<h5 class="h5">@item.Name()</h5>
-					<p class="note1">@projectDate.ToString("dd MMMM yyyy")</p>
-					<p class="body">@projectDescription</p>
-					<a class="link" href="@item.Url()">Read more</a> @* lägg in en pil! *@
-				</div>
-			</article>	
-			
+		<article class="project-item bg-light">
+			<img src="@image" alt="" class="project-image"/>
+			<div class="item-content">
+				<h5 class="h5">@item.Name()</h5>
+				<p class="note1">@projectDate.ToString("dd MMMM yyyy")</p>
+				<p class="body">@projectDescription</p>
+				<a class="link" href="@item.Url()">Read more  <i class="fa-regular fa-arrow-right"></i></a> @* lägg in en pil! *@
+			</div>
+		</article>	
 	}
 
-	@if(showPagination){
-		<div class="project-pagination">[paginering]</div>
-	}
+@if (showPagination)
+{
+	<div class="pagination-wrapper">
+		@if (currentPage > 1)
+		{
+			<a href="?page=@(currentPage - 1)" class="subtitle1 change">Prev</a>
+		}
+		else
+		{
+			<span class="subtitle1 change inactive">Prev</span>
+		}
+		<div class="pages">
+			@for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+			{
+				<a href="?page=@i" class="subtitle1 @((i == currentPage) ? "number active" : "number")">@i</a>
+			}
+		</div>
+		@if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage))
+		{
+			<a href="?page=@(currentPage + 1)" class="subtitle1 change">Next</a>
+		}
+		else
+		{
+			<span class="subtitle1 change inactive">Next</span>
+		}
+	</div>
+}
 </div>

@@ -5,6 +5,7 @@
 @{
     var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
     var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+    
     var sectionClass = $"{sectionId}-section";
     var spacingTopClass = (Model.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
     var spacingBottomClass = (Model.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";

@@ -10,8 +10,9 @@
         border-bottom: 1px solid var(--color-border-gray);
         padding: 25px 0;
 
-        &:last-child {
+        &:nth-last-child(2) {
             border-bottom: none;
+            padding-bottom: 40px;
         }
 
         .project-image {
@@ -32,13 +33,10 @@
 
             .link {
                 color: var(--color-primary);
+                .fa-arrow-right{
+                    color: var(--color-secondary);
+                }
             }
         }
-    }
-
-    .project-pagination {
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: center;
     }
 }
