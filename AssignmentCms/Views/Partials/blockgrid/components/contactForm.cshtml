@@ -1,0 +1,77 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+@{
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
+
+    var formClass = (Model.Content.Value<bool>("smallForm")) ? "small-contact-form" : "big-contact-form";
+
+    var headlineContent = Model?.Content.Value<string>("contactHeadline");
+    var labelContent = Model?.Content.Value<string>("contactLabel");
+    var textContent = Model?.Content.Value<string>("contactText");
+}
+
+<div class="@formClass">
+    @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+    {
+        <div class="top-wrapper">
+            <p class="label">@labelContent</p>
+            
+            @if (formClass == "big-contact-form")
+            {
+                <h2 class="h2">@headlineContent</h2>
+            }
+            else
+            {
+                <h3 class="h3">@headlineContent</h3>
+            }
+            @if (formClass == "big-contact-form")
+            {
+                <p class="body">@textContent</p>
+            }
+        </div>
+        <div class="content-wrapper">
+            @if (formClass == "small-contact-form")
+            {
+                <p class="body">@textContent</p>
+            }
+            <div class="input-wrapper">
+                <input id="name" name="name" type="text" placeholder="Name" class="input" value="@ViewData["name"]">
+                <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">Errormeddelande</span> 
+            </div>
+            <div class="input-wrapper">
+                <input id="email" name="email" type="email" placeholder="Email" class="input" value="@ViewData["email"]">
+                <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">Please enter an email address</span>
+            </div>
+            <div class="input-wrapper">
+                 <input id="phone" name="phone" type="text" placeholder="Phone" class="input" value="@ViewData["phone"]">
+                <span class="form-input-error @((error_message) ? "form-invalid-input" : null)">Errormeddelande</span>
+            </div>
+            <div class="input-wrapper">
+                 <select id="area" name="area" placeholder="area" class="input" value="@ViewData["area"]">
+                    <option>Financial consulting</option>
+                 </select>
+            </div>
+            @if(formClass == "small-contact-form")
+            {
+                <button class="btn-accent" type="submit">Submit</button>
+            }
+            else
+            {
+                <button class="btn-primary" type="submit">Submit</button>
+            }
+        </div>
+
+        @if (TempData["success"] != null)
+        {
+            <div class="success-message">@TempData["success"]</div>
+        }
+        @if (TempData["error"] != null)
+        {
+            <div class="error-message">@TempData["error"]</div>
+        }
+    }
+</div>

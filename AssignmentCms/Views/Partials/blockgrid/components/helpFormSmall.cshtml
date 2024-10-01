@@ -16,10 +16,14 @@
             <span class="form-input-error @((error_email_small) ? "form-invalid-input" : null)" >Enter your email</span>
             <button class="send-btn" type="submit"><i class="fa-regular fa-envelope"></i></button>
         </div>
-    
-        @if (TempData["successSmall"] != null) 
+
+        @if (TempData["successSmall"] != null)
         {
             <div class="success-message">@TempData["successSmall"]</div>
+        }
+        @if (TempData["errorSmall"] != null)
+        {
+            <div class="error-message">@TempData["errorSmall"]</div>
         }
     }
 </div>

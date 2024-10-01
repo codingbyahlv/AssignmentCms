@@ -1,4 +1,8 @@
+using AssignmentCms.Services;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<EmailService>();
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()

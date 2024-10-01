@@ -23,6 +23,10 @@ svg {
     text-align: center;
 }
 
+.transparent-bg{
+    background-color: #ffffff;
+}
+
 
 .umb-block-grid__layout-item[data-content-element-type-alias="imgPositioned"] {
     @include desktop {

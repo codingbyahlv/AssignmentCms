@@ -21,7 +21,7 @@
                 }
 
                 &:nth-child(2) {
-                    grid-column: span 1; // Second input in the second column
+                    grid-column: span 1;
                 }
             }
         }
@@ -30,7 +30,7 @@
             grid-column: span 1;
 
             @media (min-width: 768px) {
-                grid-column: span 2; // Textarea spans both columns on desktop
+                grid-column: span 2;
             }
         }
 
@@ -55,19 +55,20 @@
         }
 
         button {
-            grid-column: span 1; // Default spans 1 column for mobile
+            grid-column: span 1;
 
             @media (min-width: 768px) {
-                grid-column: 1 / 2; // On desktop, button is placed in column 1
-                justify-self: start; // Left-aligned
+                grid-column: 1 / 2;
+                justify-self: start;
             }
         }
 
         .form-input-error {
-            color: transparent;
+            display: none;
         }
 
         .form-invalid-input {
+            display: block;
             color: red;
         }
     }

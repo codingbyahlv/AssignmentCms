@@ -15,9 +15,11 @@
      var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel}" : "";
 
      var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
+
+    var setTransparentBackground = (sectionBackgroundColorLabel == "none") ? "transparent-bg" : "";
 }
 
-<section id="@sectionId" class="@sectionClass @spacingTopClass @spacingBottomClass @backgroundColorClass">
+<section id="@sectionId" class="@sectionClass @spacingTopClass @spacingBottomClass @backgroundColorClass @setTransparentBackground">
      <div class="container @centerContentClass" style="background-image: url('@sectionBackgroundImage');">
           @await Html.GetBlockGridItemAreasHtmlAsync(Model)
      </div>

@@ -28,6 +28,10 @@
         {
             <div class="success-message">@TempData["success"]</div>
         }
+        @if (TempData["error"] != null)
+        {
+            <div class="error-message">@TempData["error"]</div>
+        }
     }
 </section>
 
