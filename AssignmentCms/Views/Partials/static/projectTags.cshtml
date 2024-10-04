@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.PublishedCache
+@inject ITagQuery _tagQuery;
+@{
+    var allTags = _tagQuery.GetAllContentTags("projectTags");
+}
+ 
+@if (allTags.Any())
+{
+    <h5 class="h5">Tags</h5>
+    <ul>
+        @foreach (var tag in allTags)
+        {
+            <li>@tag?.Text</li>
+        }
+    </ul>
+}
+
+
+
+
+  

@@ -1,9 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProjectItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-
-
-
 @{
 	Layout = "childPageLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle");
@@ -13,12 +10,22 @@
     <div class="container project-details">
         <div class="page-content">
             @Model.Value("projectContent")
+
+            @if(Model.ProjectTags.Any()){
+            <div class="tag-wrapper">
+                <span class="slide">Tags</span>
+                @foreach(var tag in Model.ProjectTags){
+                    <span class="tag bg-accent">@tag</span>
+                }
+            </div>
+        }
         </div>
         <aside class="aside aside-position-right">
             <h5 class="h5">Recent projects</h5>
             [lägg in projekt]
-            <h5 class="h5">Tags</h5>
-            [lägg in tags]
+
+            @await Html.PartialAsync("partials/static/projectTags.cshtml")
+
             @await Html.PartialAsync("partials/static/helpFormSmall.cshtml")
         
         </aside>

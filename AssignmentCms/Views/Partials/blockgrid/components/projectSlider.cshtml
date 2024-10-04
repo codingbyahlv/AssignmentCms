@@ -1,0 +1,27 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+
+@{
+	var itemsPerPage = Model.Content?.Value<int>("numberOfCards") ?? 4;
+	var showPagination = Model.Content.Value<bool>("usePagination");
+	var selection = Umbraco.Content(Guid.Parse("88f70064-0848-45eb-a997-81295849fe02"))
+	.ChildrenOfType("projectItem")
+	.Where(x => x.IsVisible());
+}
+<div class="project-slider-wrapper">
+	@foreach (var item in selection)
+	{
+		var image = item.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
+            		
+        <a class="link" href="@item.Url()">
+			<article class="project-item bg-light">
+				<img src="@image" alt="" class="project-image"/>
+				<div class="item-content">
+					<h6 class="subtitle1">@item.Name()</h6>
+					<p class="body">Financial Services</p>
+					<i class="fa-solid fa-chevron-right"></i>
+				</div>
+			</article>	
+        </a>
+	}
+</div>
