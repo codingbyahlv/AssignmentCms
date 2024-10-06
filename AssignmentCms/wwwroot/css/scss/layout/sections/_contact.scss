@@ -1,35 +1,45 @@
 .contact-section {
   padding-top: 37px;
+
   .contact-content {
     display: flex;
     flex-direction: column;
     gap: 50px;
+
     @include tablet {
       flex-direction: row-reverse;
       align-items: center;
     }
+
     @include desktop {
       gap: 100px;
     }
+
     img {
       width: 100%;
+
       @include tablet{
         max-width: 50%;
       }
     }
+
     .text-content {
       display: flex;
       flex-direction: column;
       gap: 38px;
+
       @include tablet {
         align-items: flex-start;
       }
+
       .h2 {
         text-align: center;
+
         @include tablet {
           text-align: left;
         }
       }
+
       .information-wrapper {
         display: grid;
         grid-template-columns: auto 1fr;

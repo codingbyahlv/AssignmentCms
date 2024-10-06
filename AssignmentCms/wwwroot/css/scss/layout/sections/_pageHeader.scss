@@ -1,11 +1,13 @@
 .page-header-section {
-  text-align: center;
-  padding: 76px 0;
-  background-position: 50% 50%;
-  a{
-      font-weight: 400;
-  }
-  span {
-    color: var(--color-secondary);
-  }
+    text-align: center;
+    padding: 76px 0;
+    background-position: 50% 50%;
+
+    a{
+        font-weight: 400;
+    }
+
+    span {
+        color: var(--color-secondary);
+    }
 }

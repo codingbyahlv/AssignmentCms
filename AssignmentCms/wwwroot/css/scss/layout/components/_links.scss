@@ -1,5 +1,6 @@
 .link {
   display: inline-block;
+
   @include text("sub2", "bold");
   font-size: 1em;
   text-decoration: none;

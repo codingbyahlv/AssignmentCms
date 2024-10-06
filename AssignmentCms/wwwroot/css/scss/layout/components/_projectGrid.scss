@@ -1,11 +1,12 @@
 .project-wrapper {
     display: flex;
     flex-direction: column;
-    @include desktop{
 
-    padding-right: 52px;
-    border-right: 1px solid var(--color-border-gray);
+    @include desktop{
+        padding-right: 52px;
+        border-right: 1px solid var(--color-border-gray);
     }
+
     .project-item {
         display: grid;
         grid-template-columns: 1fr;
@@ -31,9 +32,9 @@
         .item-content {
             display: grid;
             grid-template-rows: auto auto 1fr auto;
-            @include tablet{
-            padding-left: 30px;
 
+            @include tablet{
+                padding-left: 30px;
             }
 
             .note1 {

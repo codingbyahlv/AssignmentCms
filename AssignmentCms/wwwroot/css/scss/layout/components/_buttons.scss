@@ -4,6 +4,7 @@
 .btn-accent,
 .btn-gray,
 .btn-light {
+
   @include btn;
   margin-top:10px;
 }
