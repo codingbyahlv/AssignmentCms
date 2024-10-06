@@ -1,0 +1,22 @@
+.aside-tag-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .h5 {
+    }
+
+    .tag-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .tag-item {
+            list-style: none;
+            border: 1px solid var(--color-border-gray);
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+    }
+}

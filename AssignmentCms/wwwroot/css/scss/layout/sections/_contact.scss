@@ -20,7 +20,6 @@
     .text-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 38px;
       @include tablet {
         align-items: flex-start;
@@ -36,6 +35,7 @@
         grid-template-columns: auto 1fr;
         grid-template-rows: auto auto;
         gap: 6px;
+
         i {
           font-size: 21px;
           color: var(--color-secondary);

@@ -12,7 +12,7 @@
         <h4 class="h4">Have a question?</h4>
         <div class="input-wrapper">
             <input id="name" name="name" type="text" placeholder="Name" class="input" value="@ViewData["name"]">
-            <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">Errormeddelande</span> 
+            <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">Please enter a name</span>
         </div>
         <div class="input-wrapper">
             <input id="email" name="email" type="email" placeholder="Email" class="input" value="@ViewData["email"]">
@@ -20,7 +20,7 @@
         </div>
         <div class="textarea-wrapper">
             <textarea id="message" name="message" placeholder="Question" class="textarea">@ViewData["message"]</textarea>
-            <span class="form-input-error @((error_message) ? "form-invalid-input" : null)">Errormeddelande</span>
+            <span class="form-input-error @((error_message) ? "form-invalid-input" : null)">Please enter a message</span>
         </div>
         <button class="btn-primary" type="submit">Submit</button>
 

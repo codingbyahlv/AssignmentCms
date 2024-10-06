@@ -29,7 +29,7 @@
         .textarea-wrapper {
             grid-column: span 1;
 
-            @media (min-width: 768px) {
+            @include desktop {
                 grid-column: span 2;
             }
         }

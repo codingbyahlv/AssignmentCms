@@ -18,7 +18,7 @@
 
 <header class="header-section container">
     <a href="/" ><img src="@siteLogotype" alt="@siteName logo" /></a>
-    <nav class="link-wrapper">
+    <nav class="desktop-link-wrapper">
         @if (selection?.Length > 0)
         {
             @foreach (var item in selection)
@@ -28,7 +28,28 @@
         }
     </nav>
     <i class="fa-solid fa-magnifying-glass"></i>
-    <button class="btn-menu"><i class="fa-regular fa-bars"></i></button>
+    <button class="btn-menu mobile-menu-btn" id="mobile-menu-btn-open"><i class="fa-solid fa-bars"></i></button>
+
+
+
+    <div class="mobile-menu hide" id="mobile-menu">
+        <button class="btn-menu mobile-menu-btn" id="mobile-menu-btn-close">
+            <i class="fa-solid fa-xmark mobile-menu-btn"></i>
+        </button>
+        <nav class="mobile-link-wrapper">
+            @if (selection?.Length > 0)
+            {
+                @foreach (var item in selection)
+                {
+                    <a href="@item.Url(PublishedUrlProvider)" class="link @(item.IsAncestorOrSelf(Model) ? "current" : null)">@item.Name</a>
+                }
+            }
+        </nav>
+    </div>
+
+
+
+
 </header>
 
 

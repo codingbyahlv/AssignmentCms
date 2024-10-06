@@ -40,7 +40,7 @@
             }
             <div class="input-wrapper">
                 <input id="name" name="name" type="text" placeholder="Name" class="input" value="@ViewData["name"]">
-                <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">Errormeddelande</span> 
+                <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">Please enter a name</span>
             </div>
             <div class="input-wrapper">
                 <input id="email" name="email" type="email" placeholder="Email" class="input" value="@ViewData["email"]">
@@ -48,7 +48,7 @@
             </div>
             <div class="input-wrapper">
                  <input id="phone" name="phone" type="text" placeholder="Phone" class="input" value="@ViewData["phone"]">
-                <span class="form-input-error @((error_message) ? "form-invalid-input" : null)">Errormeddelande</span>
+                <span class="form-input-error @((error_message) ? "form-invalid-input" : null)">Please enter a phone number</span>
             </div>
             <div class="input-wrapper">
                  <select id="area" name="area" placeholder="area" class="input" value="@ViewData["area"]">

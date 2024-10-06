@@ -7,13 +7,16 @@
  
 @if (allTags.Any())
 {
+    <div class="aside-tag-wrapper">
+
     <h5 class="h5">Tags</h5>
-    <ul>
+    <ul class="tag-container">
         @foreach (var tag in allTags)
         {
-            <li>@tag?.Text</li>
+            <li class="tag-item">@tag?.Text</li>
         }
     </ul>
+    </div>
 }
 
 

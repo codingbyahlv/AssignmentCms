@@ -2,6 +2,7 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
@@ -15,9 +16,12 @@
     var showOfficeLocation = settings.Value<bool>("showOfficeLocation");
     var showPhoneNumber = settings.Value<bool>("showPhoneNumber");
     var showEmailAddress = settings.Value<bool>("showEmailAddress");
+
+    var sectionBackgroundColorLabel = Model?.Content?.Value<ColorPickerValueConverter.PickedColor>("backgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel}" : "";
 }
 
-<section id="contact" class="contact-section bg-gray">
+<section id="contact" class="contact-section @backgroundColorClass">
   <div class="container contact-content">
     <div class="text-content">
         <h2 class="h2">@contactHeadline</h2>

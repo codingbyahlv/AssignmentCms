@@ -1,14 +1,20 @@
 .project-wrapper {
     display: flex;
     flex-direction: column;
+    @include desktop{
+
     padding-right: 52px;
     border-right: 1px solid var(--color-border-gray);
-
+    }
     .project-item {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         border-bottom: 1px solid var(--color-border-gray);
         padding: 25px 0;
+
+        @include tablet {
+            grid-template-columns: 1fr 1fr;
+        }
 
         &:nth-last-child(2) {
             border-bottom: none;
@@ -25,7 +31,10 @@
         .item-content {
             display: grid;
             grid-template-rows: auto auto 1fr auto;
+            @include tablet{
             padding-left: 30px;
+
+            }
 
             .note1 {
                 color: var(--color-primary-light);
@@ -33,7 +42,8 @@
 
             .link {
                 color: var(--color-primary);
-                .fa-arrow-right{
+
+                .fa-arrow-right {
                     color: var(--color-secondary);
                 }
             }

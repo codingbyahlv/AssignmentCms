@@ -4,6 +4,9 @@
 @{
 	Layout = "childPageLayout.cshtml";
     ViewBag.Title = Model?.Value("pageTitle");
+    var projects = Umbraco.Content(Guid.Parse("88f70064-0848-45eb-a997-81295849fe02"))
+        .ChildrenOfType("projectItem")
+        .Where(x => x.IsVisible());
 }
 
 <section class="spacing-top spacing-bottom">
@@ -21,8 +24,28 @@
         }
         </div>
         <aside class="aside aside-position-right">
+
             <h5 class="h5">Recent projects</h5>
-            [lägg in projekt]
+            <div class="recent-projects-wrapper">
+
+            @foreach (var item in projects)
+            {
+                var image = item.Value<IPublishedContent>("projectThumbnail")?.Url() ?? "";
+                var projectDate = item.Value<DateTime>("projectDate");
+                
+                <a class="link" href="@item.Url()">
+                    <article class="recent-project-item">
+                        <div class="item1">
+
+                        <img src="@image" alt="" class="recent-project-image" />
+                        </div>
+                        <h6 class="subtitle3 item2">@item.Name()</h6>
+                        <p class="body item3">@projectDate.ToString("dd MMMM yyyy")</p>
+                    </article>	
+                </a>
+            }
+            </div>
+
 
             @await Html.PartialAsync("partials/static/projectTags.cshtml")
 
